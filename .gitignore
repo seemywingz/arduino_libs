@@ -1,5 +1,12 @@
+# Ignore everything
 *
+
+# But not these files...
 !.gitignore
-!LED/*
-!Pin/*
-!Ultrasonic/*
+!LED/*.h
+!Pin/*.h
+!Ultrasonic/*.h
+# etc...
+
+# ...even if they are in subdirectories
+!*/
