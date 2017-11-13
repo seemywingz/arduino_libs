@@ -10,15 +10,15 @@ class Pin{
 
 	Pin(int pinIN){
 		pinNumber = pinIN;
-		pinMode(pinNumber,OUTPUT);
+		pinMode(pinNumber, OUTPUT);
 	};//..
 	
 	void off(){
-		digitalWrite(pinNumber,LOW);
+		digitalWrite(pinNumber, LOW);
 	};
 	
 	void on(){
-		digitalWrite(pinNumber,HIGH);
+		digitalWrite(pinNumber, HIGH);
 	};		
 	
 	int getPinNumber(){
@@ -26,13 +26,20 @@ class Pin{
 	};
 	
 	void setPinMode(int mode){
-		pinMode(pinNumber,mode);
+		pinMode(pinNumber, mode);
 	};
 	
 	void pwm(int val){
-		analogWrite(pinNumber,val);
-	}//..
+		analogWrite(pinNumber, val);
+	};
 	
+	void startTone(int val){
+		tone(pinNumber, val);
+	};
+	
+	void stopTone(){
+		noTone(pinNumber);
+	};
 };// end LED
 
 #endif

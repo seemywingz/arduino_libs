@@ -1,49 +1,40 @@
 #ifndef LED_h
 #define LED_h
 
-#include "Arduino.h"
+// #include "Arduino.h"
 #include "Pin.h"
 
 class LED{
 	public:
+
+		Pin *hot, *gnd;
 		boolean ison;
 
 		LED(){};
 
-		LED(int p){
-			hot = new Pin(p);
-		};//..
+		LED(int h){
+			hot = new Pin(h);
+		};
 
-		LED(int p,int g){
-			hot = new Pin(p);
+		LED(int h, int g){
+			hot = new Pin(h);
 			gnd = new Pin(g);
-			gnd->set(LOW);
-		};//..
-
+			gnd->setPinMode(OUTPUT);
+			gnd->off(OUTPUT);
+		};
 
 		void on(){
 			hot->on();
 			ison = true;
-		};//..
+		};
 
 		void off(){
 			hot->off();
 			ison = false;
-		};//..
-
-		void setHot(int s){
-			hot->set(s);
-		};
-
-		Pin* getHot(){
-			return hot;
 		};
 
 		boolean isOn(){
 			return ison;
 		};
-
-	protected:
-		Pin *hot, *gnd;
 };
 #endif

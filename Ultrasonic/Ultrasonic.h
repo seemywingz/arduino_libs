@@ -1,8 +1,8 @@
 #ifndef ULTRASONIC_H
 #define ULTRASONIC_H
 
-#include "Arduino.h";
-#include "Pin.h";
+#include <Arduino.h>
+#include <Pin.h>
 
 class Ultrasonic{
 
