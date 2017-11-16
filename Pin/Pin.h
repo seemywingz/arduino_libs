@@ -7,6 +7,7 @@ class Pin{
 
 	public:
 		int pinNumber;
+		bool isOn = false;
 
 	Pin(int pinIN){
 		pinNumber = pinIN;
@@ -15,22 +16,16 @@ class Pin{
 	
 	void off(){
 		digitalWrite(pinNumber, LOW);
+		isOn = false;
 	};
 	
 	void on(){
 		digitalWrite(pinNumber, HIGH);
+		isOn = true;
 	};		
-	
-	int getPinNumber(){
-		return pinNumber;
-	};
 	
 	void setPinMode(int mode){
 		pinMode(pinNumber, mode);
-	};
-	
-	void pwm(int val){
-		analogWrite(pinNumber, val);
 	};
 	
 	void startTone(int val){
@@ -40,6 +35,23 @@ class Pin{
 	void stopTone(){
 		noTone(pinNumber);
 	};
+
+	int readA(){
+	  return analogRead(pinNumber);
+    };
+
+	int readD(){
+	  return digitalRead(pinNumber);
+	};
+
+	void writeA(int val){
+	  return analogWrite(pinNumber, val);
+	};
+
+	void writeD(int val){
+	  return digitalWrite(pinNumber, val);
+	};
+
 };// end LED
 
 #endif

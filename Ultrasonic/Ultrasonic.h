@@ -18,7 +18,7 @@ class Ultrasonic{
 		trigger->on();  
 		delayMicroseconds(10); 
 		trigger->off(); 
-		duration = pulseIn(echo->getPinNumber(), HIGH); 
+		duration = pulseIn(echo->pinNumber, HIGH); 
 		cm = duration/58;
 		delayMicroseconds(500);
 		return cm;
